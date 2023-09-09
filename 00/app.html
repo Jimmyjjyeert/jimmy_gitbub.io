@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>登入資訊</title>
+    </head>
+    <body>
+        <h1>個人資訊</h1>
+        <form>
+            <fieldset>
+                <legend>登入訊息</legend>
+                <label>帳號名稱:  </label>
+                <input type="text" name="username" size="40" placeholder="帳號名稱" required>
+                <br>
+                <label>Email:  </label>
+                <input type="email" name="useremail" placeholder="請輸入Email" required>
+                <br>
+                <label>密碼：</label>
+                <input type="password" name="userpassword" size="50" placeholder="請輸入密碼" required>
+                <br>
+                <input type="radio" name="userage" value="age1">已滿18
+                <input type="radio" name="userage" value="age2"> 未滿18
+                <br>
+                <label> 手機電話：  </label>
+                <input type="tel" name="userhphone" pattern="[0-9]{4}-[0-9]{6}" size="50" placeholder="請輸入09xx-xxxxxx格式">
+                
+            </fieldset>
+
+            <input type="submit" value="送出">
+            <input type="reset" value="清除">
+            
+            <a href="asd.html" type="">回去</a>
+        </form>
+    </body>
+</html>

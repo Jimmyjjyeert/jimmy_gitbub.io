@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>告白網站</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>我想對你說...</h1>
+		<form id="confess-form">
+			<label for="name-input">你的名字：</label>
+			<input type="text" id="name-input" name="name" required>
+			<label for="message-input">告白內容：</label>
+			<textarea id="message-input" name="message" required></textarea>
+			<label for="image-input">照片上傳：</label>
+			<input type="file" id="image-input" name="image">
+			<input type="submit" value="傳送">
+		</form>
+		<div id="heart-container"></div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+
+h1 {
+	margin-bottom: 20px;
+	font-size: 36px;
+	font-weight: bold;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+label {
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+	width: 100%;
+	padding: 10px;
+	font-size: 18px;
+	border-radius: 10px;
+	border: none;
+}
+
+input[type="file"] {
+	margin-top: 10px;
+}
+
+input[type="submit"] {
+	margin-top: 20px;
+	padding: 10px 30px;
+	background-color: #FF69B4;
+	color: white;
+	font-size: 18px;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+}
+
+#heart-container {
+	margin-top: 20px;
+}
+const form = document.querySelector('#confess-form');
+const heartContainer = document.querySelector('#heart-container');
+
+form.addEventListener('submit', (event) => {
+	event.preventDefault();
+	
+	const nameInput = document.querySelector('#name-input');
+	const messageInput = document.querySelector('#message-input');
+	const imageInput = document.querySelector('#image-input');
+
+	// 將表單資料轉換成 FormData 物件
+	const formData = new FormData();
+	formData.append('name', nameInput.value);
+	formData.append('message', messageInput.value);
+	formData.append('image', imageInput.files[0]);
+
+	// 發送 POST 請求到後端
+	fetch('/api/confess', {
+		method: 'POST',
+		body: formData
+	})
+	.then(response => response.json())
+	.then(data => {
+		// 顯示愛心動畫
+		heartContainer.innerHTML = `
+			<div class="heart"></div>
+			<div class="heart"></div>
+			<div class="heart"></div>
+			<div class="heart"></div>
+			<div class="heart"></div>
+		`;
+
+		// 清空表單
+		nameInput.value = '';

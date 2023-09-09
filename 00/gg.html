@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>表單Forms</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>表單練習</h1>
+        <form>
+            <fieldset>
+                <legend> 個人資訊  </legend>
+                <!-- 輸入文字 -->
+                <label> 姓名：  </label>
+                <input type="text" name="username" size="40">
+                <br>
+                <br>
+                <!-- 選項 -->
+                <label> 年紀：  </label>
+                <input type="radio" name="userage" value="age1">小於18歲
+                <input type="radio" name="userage" value="age2">19-30歲
+                <input type="radio" name="userage" value="age3">31-50歲
+                <input type="radio" name="userage" value="age4">超過50歲
+                <!-- 複選Checkbox -->
+                <br>
+                <br>
+
+                <label> 您看過本頻道哪些影片呢？  </label>
+                <input type="checkbox" name="uservideo[]" value="video1">架構
+                <input type="checkbox" name="uservideo[]" value="video2">屬性
+                <input type="checkbox" name="uservideo[]" value="video3">項目清單
+                <input type="checkbox" name="uservideo[]" value="video4">表格
+                
+                <!-- 複選選項  -->
+                <br>
+                <br>
+
+                <label> 您最喜歡本頻道哪一些影片呢？  </label>
+               <select name="userlike[]" size="1"  >
+                    <option value="likevideo1">架構</option>
+                    <option value="likevideo2">屬性</option>
+                    <option value="likevideo3">項目清單</option>
+                    <option value="likevideo4">表格</option>
+               </select>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>登入資訊</legend>
+                <!-- email 格式 -->
+                <label> Email：  </label>
+                <input type="email" name="useremail" size="50" placeholder="請輸入Email" required>
+                <br>
+                <br>
+                <!-- 密碼 格式 -->
+                <label> 密碼：  </label>
+                <input type="password" name="userpassword" size="50" placeholder="請輸入密碼" required>
+                <br>
+                <br>
+                <!-- URL 格式 -->
+                <label> URL  </label>
+                <input type="url" name="userurl" size="50" placeholder="請輸入網址">
+                <br>
+                <br>
+                <!-- 日期 格式 -->
+                <label> 生日：  </label>
+                <input type="date" name="userbirthday" size="50">
+                <br>
+                <br>
+                <!-- 電話 格式 -->
+                <label> 手機電話：  </label>
+                <input type="tel" name="userhphone" pattern="[0-9]{4}-[0-9]{6}" size="50" placeholder="請輸入09xx-xxxxxx格式">
+                <br>
+                <br>
+
+            </fieldset>
+
+            <input type="submit" value="送出">
+            <input type="reset" value="清除">
+        </form>   
+    </body>
+
+</html>
